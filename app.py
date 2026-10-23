@@ -122,7 +122,7 @@ def listar_medicamentos():
 
     
     html += """
-    <h3>Agregar Medicamento</h3>
+    <h3>Agregar Medicamento al almacen</h3>
     <form action="/medicamentos/add" method="post">
       Nombre: <input type="text" name="nombre"><br>
       Precio: <input type="text" name="precio"><br>
