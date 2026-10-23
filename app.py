@@ -98,7 +98,7 @@ def index():
     <ul>
         <li><a href='/medicamentos'>Medicamentos</a></li>
         <li><a href='/clientes'>Clientes</a></li>
-        <li><a href='/proveedores'>Proveedores</a></li>
+        <li><a href='/proveedores'>Proveedores activos</a></li>
         <li><a href='/ventas'>Ventas</a></li>
     </ul>
     """
