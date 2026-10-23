@@ -100,7 +100,7 @@ def get_db_connection():
 @app.route("/")
 def index():
     return """
-    <h1>Farmacia Online HUGO´s</h1>
+    <h1>Farmacia Online en internet HUGO´s</h1>
     <p>Bienvenido a nuestro servicio</p>
     <ul>
         <li><a href='/medicamentos'>Medicamentos</a></li>
