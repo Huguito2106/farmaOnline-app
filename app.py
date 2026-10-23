@@ -8,8 +8,7 @@ def init_db():
     if not os.path.exists(DB_NAME):
         conn = sqlite3.connect(DB_NAME)
         cursor = conn.cursor()
-
-       
+    
         cursor.execute("""
         CREATE TABLE proveedores (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -18,8 +17,7 @@ def init_db():
             direccion TEXT
         )
         """)
-
-      
+     
         cursor.execute("""
         CREATE TABLE medicamentos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,7 +28,6 @@ def init_db():
             FOREIGN KEY (proveedor_id) REFERENCES proveedores(id)
         )
         """)
-
        
         cursor.execute("""
         CREATE TABLE clientes (
@@ -40,8 +37,7 @@ def init_db():
             telefono TEXT
         )
         """)
-
-        
+      
         cursor.execute("""
         CREATE TABLE ventas (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -51,7 +47,6 @@ def init_db():
             FOREIGN KEY (cliente_id) REFERENCES clientes(id)
         )
         """)
-
         
         cursor.execute("""
         CREATE TABLE detalle_ventas (
@@ -64,7 +59,6 @@ def init_db():
             FOREIGN KEY (medicamento_id) REFERENCES medicamentos(id)
         )
         """)
-
         
         cursor.execute("INSERT INTO proveedores (nombre, telefono, direccion) VALUES (?,?,?)",
                        ("Laboratorios ACME", "78945612", "Av. Central #123"))
@@ -96,11 +90,10 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
-
 @app.route("/")
 def index():
     return """
-    <h1>Farmacia Online en internet HUGO´s</h1>
+    <h1>Farmacia Online HUGO´s</h1>
     <p>Bienvenido a nuestro servicio</p>
     <ul>
         <li><a href='/medicamentos'>Medicamentos</a></li>
@@ -110,7 +103,6 @@ def index():
     </ul>
     """
 
-
 @app.route("/medicamentos", methods=["GET"])
 def listar_medicamentos():
     conn = get_db_connection()
@@ -119,7 +111,7 @@ def listar_medicamentos():
     conn.close()
 
     html = """
-    <h2>Medicamentos</h2>
+    <h2>Medicamentos en Almacen</h2>
     <table border="1">
       <tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Proveedor</th><th>Acciones</th></tr>
     """
